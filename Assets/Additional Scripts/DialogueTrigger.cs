@@ -1,33 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    bool beginDialogue;
+    GameManager gm;
+    [SerializeField] TMP_Text dialogueBox; 
+    bool firstDialogue;
+    bool secondDialogue;
     bool talking;
-    public ObjectDialogue dialogue;
+    [TextArea(3, 10)]
+    public string [] dialogue; 
+    bool next;
+    void Start(){
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
 
     void Update(){
-        if(beginDialogue){
-
-            if(talking && Input.GetMouseButtonDown(0)){
-                talking = false; 
+        if(firstDialogue){
+            if(gm.index != 2){
+                dialogueBox.text = dialogue[gm.index]; 
+                if(Input.GetMouseButtonDown(0)){
+                    gm.index += 1;
+                }
+            } else {
+                dialogueBox.text = "";
             }
-
-            if(!talking){
-                TriggerDialogue();
-                talking = true; 
-            } 
         }
-    }
-    public void TriggerDialogue(){
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+
+        if(secondDialogue){
+            if(gm.index != 4){
+                dialogueBox.text = dialogue[gm.index];
+                if(Input.GetMouseButtonDown(0)){
+                    gm.index += 1;
+                }
+            } else {
+                dialogueBox.text = "";
+            }
+        }
     }
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Player"){
-            beginDialogue = true;
+            if(gm.visits == 2){
+                secondDialogue = true;
+            } else {
+                firstDialogue = true;
+            }
         }
     }
 }

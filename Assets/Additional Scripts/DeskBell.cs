@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeskBell : MonoBehaviour
 {
+    GameManager gm;
     FirstPersonLook player;
     Vector3 initialPos;
     Vector3 newPos; 
@@ -12,6 +13,7 @@ public class DeskBell : MonoBehaviour
 
     void Start()
     {
+        gm = GameObject.Find("Game Manager").GetComponent<GameManager>();
         player = GameObject.Find("First Person Camera").GetComponent<FirstPersonLook>();
         initialPos = ding.transform.position;
         newPos = new Vector3(ding.transform.position.x, ding.transform.position.y - 0.005f, ding.transform.position.z);
@@ -20,7 +22,7 @@ public class DeskBell : MonoBehaviour
     void Update()
     {
         if(player.rungBell){
-            ding.transform.position = newPos; 
+            ding.transform.position = newPos;
             //Debug.Log("YERR");
         } else {
             ding.transform.position = initialPos; 

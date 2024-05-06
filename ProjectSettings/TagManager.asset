@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Desk Bell
   - Desk Fan
+  - Flower
+  - Door
+  - Game Manager
   layers:
   - Default
   - TransparentFX

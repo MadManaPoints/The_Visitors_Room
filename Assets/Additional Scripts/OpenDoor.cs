@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-    bool doorOpen; 
+    public bool doorOpen;
+    Vector3 open; 
     void Start()
     {
-        
+        open = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90f, transform.localEulerAngles.z);
     }
 
     void Update()
     {
-        if(!doorOpen && Input.GetMouseButtonDown(0)){
-            doorOpen = true;
-        }
-
         if(doorOpen){
-            this.transform.localEulerAngles = new Vector3(0, -90, 0);
+            this.transform.localEulerAngles = open;
         }
     }
 }

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/The Visitors' Room (WIP).unity
+    guid: 566e1995262b8cf4c9b071a9029620b3
+  - enabled: 1
+    path: Assets/Scenes/Camping.unity
+    guid: 3fbfc5f60cba05f4d9e4ef16bd246d75
+  - enabled: 1
+    path: Assets/Scenes/Pizza Level.unity
+    guid: d34a25e5894916347b8813172e87667f
   m_configObjects: {}
