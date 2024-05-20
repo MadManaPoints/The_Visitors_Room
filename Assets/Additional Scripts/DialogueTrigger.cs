@@ -43,7 +43,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
         if(col.gameObject.tag == "Player"){
-            if(gm.visits == 2){
+            if(gm.visits == 3){
                 secondDialogue = true;
             } else {
                 firstDialogue = true;
